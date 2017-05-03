@@ -26,7 +26,7 @@ public class ReadRecord {
     private Connection conn;
     private ResultSet results;
     
-    private Customers customers = new Customers();
+    private Customers customer = new Customers();
     private int CustomerID;
     
     public ReadRecord (int CustomerID) {
@@ -73,7 +73,7 @@ public class ReadRecord {
     
         try {
             
-            String query = "SELECT * FROM customers WHERE CustomerID = ?";
+            String query = "SELECT * FROM customer WHERE CustID = ?";
             
             PreparedStatement ps = null;
             try {
@@ -92,15 +92,15 @@ public class ReadRecord {
             
             this.results.next();
             
-            customers.setCustomerID(this.results.getInt("CustomerID"));
-            customers.setFirstName(this.results.getString("FirstName"));
-            customers.setLastName(this.results.getString("LastName"));
-            customers.setAddr1(this.results.getString("Addr1"));
-            customers.setAddr2(this.results.getString("Addr2"));
-            customers.setCity(this.results.getString("City"));
-            customers.setState(this.results.getString("State"));
-            customers.setZip(this.results.getString("Zip"));
-            customers.setEmailAddr(this.results.getString("EmailAddr"));
+            customer.setCustID(this.results.getInt("CustID"));
+            customer.setFirstName(this.results.getString("FirstName"));
+            customer.setLastName(this.results.getString("LastName"));
+            customer.setAddr1(this.results.getString("Addr1"));
+            customer.setAddr2(this.results.getString("Addr2"));
+            customer.setCity(this.results.getString("City"));
+            customer.setCustState(this.results.getString("State"));
+            customer.setZip(this.results.getString("Zip"));
+            customer.setEmailAddr(this.results.getString("EmailAddr"));
             
             
         } catch (SQLException ex) {
@@ -114,7 +114,7 @@ public class ReadRecord {
     
     public Customers getCutomers(){
        
-        return this.customers;
+        return this.customer;
     
 }
 

@@ -1,0 +1,105 @@
+body { background-color: gray; }
+
+.wrap {text-align:center; width:90%; margin: 0 auto; border: 8px solid black; margin-top:25px;}
+
+.header {background-color:white; text-align:left; padding:25px; }
+.headerImg {float:left; width:200px;  }
+.headerText {float:left; height:105px; padding-top:50px;  }
+
+.main {background-color:yellow; text-align:left; padding:25px; }
+
+.footer {background-color:grey; text-align:left; padding:25px; }
+
+
+table {border-collapse: collapse;}
+table, th, td {border: 1px solid black;}
+
+
+input[readonly] {background-color:gray;}
+
+.right {text-align: right;}
+.add td {border: none; height:25px; padding:10px; font-weight: bold;}
+
+.update td {border: none; height:25px; padding:10px; font-weight: bold;}
+
+
+
+
+/*Fat Erik's Pipelist*/
+/* http://css.maxdesign.com.au/listamatic/horizontal32.htm */
+.navlist
+{
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.navlist li
+{
+display: inline;
+padding: 0;
+margin: 0;
+}
+
+.navlist li:before { content: "| "; }
+.navlist li:first-child:before { content: ""; }
+
+/*IE workaround*/
+/*All IE browsers*/
+* html #navlist li
+{
+border-left: 1px solid black;
+padding: 0 0.4em 0 0.4em;
+margin: 0 0.4em 0 -0.4em;
+}
+
+/*Win IE browsers - hide from Mac IE\*/
+* html #navlist { height: 1%; }
+
+* html #navlist li
+{
+display: block;
+float: left;
+}
+
+/*End hide*/
+/*Mac IE 5*/
+* html #navlist li:first-child { border-left: 0; }
+
+
+
+table, th, td {
+   border: 1px solid black;
+   border-collapse: collapse;
+   color: black;
+}
+th, td {
+    padding: 15px;
+}
+td {
+    height: 20px;
+    vertical-align: middle;
+}
+
+th {
+    text-align: center;
+}
+
+tr:hover {background-color: #CCCCCC
+}
+tr:nth-child {background-color: #F2F2F2
+}
+
+th {
+    background-color: black;
+    color: white;  
+}
+table {
+    background-color: white;
+    color: #FFFFFF
+}
+
+body {background-color: white}
+<table style="width:100%">
+
+   

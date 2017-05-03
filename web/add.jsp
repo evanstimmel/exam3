@@ -4,29 +4,42 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>Add a New Customer</title>
+        <link rel="stylesheet" type="text/css" href="./css/stylesheet1.css" />
     </head>
     <body>
+        
+        
+        <div class="wrap">
+            
+            <%@ include file="includes/header.jsp" %>
+        
+            <%@ include file="includes/menu.jsp" %>
+            
+            
+             <div class="main">
+        
+        
+        
         <h1>Add Customer</h1>
-         <div class="main">
+         
             <form name="addForm" action="addCustomer" method="get">
 
-                <label>FirstName:</label>
+                <label>First Name:</label>
                 <br>
-                <input type="text" name="firstname" value="" />
+                <input type="text" name="firstName" value="" />
                 <br>
-                <label>LastName:</label>
+                <label>Last Name:</label>
                 <br>
-                <input type="text" name="lastname" value="" />
+                <input type="text" name="lastName" value="" />
                 <br>
                 <label>Address1:</label>
                 <br>
-                <input type="text" name="address1" value="" />
+                <input type="text" name="addr1" value="" />
                 <br>
                 <label>Address2:</label>
                 <br>
-                <input type="text" name="address2" value="" />
+                <input type="text" name="addr2" value="" />
                 <br>
                 <label>City:</label>
                 <br>
@@ -42,13 +55,18 @@
                 <br>
                 <label>Email Address:</label>
                 <br>
-                <input type="text" name="emailaddr" value="" />
-                <br><br>
+                <input type="text" name="emailAddr" value="" />
+                <br>
+                <input type="submit" name="submit" value="Submit" />
                 
             </form>
-                
-                
-                
-                
+                 
+         </div>
+       
+            <%@ include file="includes/footer.jsp" %>
+        
+        </div>
+        
+        
     </body>
 </html>

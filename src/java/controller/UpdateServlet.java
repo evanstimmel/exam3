@@ -8,6 +8,9 @@ package controller;
 import dbHelpers.UpdateQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -77,30 +80,34 @@ public class UpdateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        int CustomerID = Integer.parseInt(request.getParameter("id"));
-        String FirstName = request.getParameter("firstname"); 
-        String LastName = request.getParameter("lastname");
-        String Addr1 = request.getParameter("addr1");
-        String Addr2 = request.getParameter("addr2");
-        String City = request.getParameter("city");
-        String State = request.getParameter("state");
-        String Zip = request.getParameter("zip");
-        String EmailAddr = request.getParameter("emailaddr");
+        int CustID = Integer.parseInt(request.getParameter("CustID"));
+        String FirstName = request.getParameter("FirstName"); 
+        String LastName = request.getParameter("LastName");
+        String Addr1 = request.getParameter("Addr1");
+        String Addr2 = request.getParameter("Addr2");
+        String City = request.getParameter("City");
+        String State = request.getParameter("State");
+        String Zip = request.getParameter("Zip");
+        String EmailAddr = request.getParameter("EmailAddr");
         
-        Customers customers = new Customers();
-        customers.setCustomerID(CustomerID);
-        customers.setFirstName(FirstName);
-        customers.setLastName(LastName);
-        customers.setAddr1(Addr1);
-        customers.setAddr2(Addr2);
-        customers.setCity(City);
-        customers.setState(State);
-        customers.setZip(Zip);
-        customers.setEmailAddr(EmailAddr);
+        Customers customer = new Customers();
+        customer.setCustID(CustID);
+        customer.setFirstName(FirstName);
+        customer.setLastName(LastName);
+        customer.setAddr1(Addr1);
+        customer.setAddr2(Addr2);
+        customer.setCity(City);
+        customer.setCustState(State);
+        customer.setZip(Zip);
+        customer.setEmailAddr(EmailAddr);
        
         
         UpdateQuery uq = new UpdateQuery();
-        uq.doUpdate(customers);
+        try {
+            uq.doUpdate(customer);
+        } catch (SQLException ex) {
+            Logger.getLogger(UpdateServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         String url = "/read";
         

@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dbHelpers.ReadQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -18,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Evan Stimmel
  */
-@WebServlet(name = "AddForm", urlPatterns = {"/add"})
-public class AddForm extends HttpServlet {
+@WebServlet(name = "ReadServlet", urlPatterns = {"/read"})
+public class ReadServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +39,10 @@ public class AddForm extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddForm</title>");            
+            out.println("<title>Servlet ReadServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddForm at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ReadServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -73,9 +74,14 @@ public class AddForm extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-        String url = "/add.jsp";
+         ReadQuery rq = new ReadQuery();
         
+        rq.doRead();
+        String table = rq.getHTMLTable();
+        
+        request.setAttribute("table", table);
+        String url = "/read.jsp";
+                
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }

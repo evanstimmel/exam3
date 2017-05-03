@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dbhelpers;
+package dbHelpers;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -55,21 +55,21 @@ public class AddQuery {
     }
     
     
-    public void doAdd (Customers customers) {
+    public void doAdd (Customers customer) {
       
     try {
-        String query = "INSERT INTO customers (firstName, lastName, addr1, addr2, city, state, zip, emailAddr) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO customer (firstName, lastName, addr1, addr2, city, custState, zip, emailAddr) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
         PreparedStatement ps = conn.prepareStatement(query);
         
-            ps.setString(1, customers.getFirstName());
-            ps.setString(2, customers.getLastName());
-            ps.setString(3, customers.getAddr1());
-            ps.setString(4, customers.getAddr2());
-            ps.setString(5, customers.getCity());
-            ps.setString(6, customers.getState());
-            ps.setString(7, customers.getZip());
-            ps.setString(8, customers.getEmailAddr());
+            ps.setString(1, customer.getFirstName());
+            ps.setString(2, customer.getLastName());
+            ps.setString(3, customer.getAddr1());
+            ps.setString(4, customer.getAddr2());
+            ps.setString(5, customer.getCity());
+            ps.setString(6, customer.getCustState());
+            ps.setString(7, customer.getZip());
+            ps.setString(8, customer.getEmailAddr());
             
             ps.executeUpdate();
   

@@ -23,6 +23,8 @@ import model.Customers;
 @WebServlet(name = "UpdateFormServlet", urlPatterns = {"/update"})
 public class UpdateFormServlet extends HttpServlet {
 
+    private Object customer;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -82,9 +84,9 @@ public class UpdateFormServlet extends HttpServlet {
         
         rr.doRead();
         
-        Customers customers = rr.getCustomers();
+        Customers customer = rr.getCustomers();
         
-        request.setAttribute("Customers", customers);
+        request.setAttribute("Customers", customer);
         
         String url = "/updateForm.jsp";
         

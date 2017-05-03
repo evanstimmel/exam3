@@ -1,60 +1,70 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Customers"%>
-<% Customers customers = (Customers) request.getAttribute("customers"); %>
+<% Customers customer = (Customers) request.getAttribute("customer"); %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="./css/stylesheet1.css" />
         <title>Update Customers</title>
     </head>
     <body>
+        
+        
+        
+        
+        
+        
         <h1>Update a Customer Record</h1>
         <form name="updateForm" action="updateCustomer" method="get">
 
             
-                <label>CustomerID:</label>
+                <label>Customer ID:</label>
                 <br>
-                <input type="text" name="id" value= "<%= customers.getCustomerID() %>" readonly/>
+                <input type="text" name="id" value= "<%= customer.getCustID() %>" readonly/>
                 <br>
-                <label>FirstName:</label>
+                <label>First Name:</label>
                 <br>
-                <input type="text" name="firstname" value="<%= customers.getFirstName() %>" />
+                <input type="text" name="firstname" value="<%= customer.getFirstName() %>" />
                 <br>
-                <label>LastName:</label>
+                <label>Last Name:</label>
                 <br>
-                <input type="text" name="lastname" value="<%= customers.getLastName() %>" />
+                <input type="text" name="lastname" value="<%= customer.getLastName() %>" />
                 <br>
                 <label>Address1:</label>
                 <br>
-                <input type="text" name="addr1" value="" /><%= customers.getAddr1() %>
+                <input type="text" name="addr1" value="" /><%= customer.getAddr1() %>
                 <br>
                 <label>Address2:</label>
                 <br>
-                <input type="text" name="addr2" value="<%= customers.getAddr2() %>" />
+                <input type="text" name="addr2" value="<%= customer.getAddr2() %>" />
                 <br>
                 <label>City:</label>
                 <br>
-                <input type="text" name="city" value="<%= customers.getCity() %>" />
+                <input type="text" name="city" value="<%= customer.getCity() %>" />
                 <br>
                 <label>State:</label>
                 <br>
-                <input type="text" name="state" value="<%= customers.getState() %>" />
+                <input type="text" name="state" value="<%= customer.getCustState() %>" />
                 <br>
                 <label>Zip</label>
                 <br>
-                <input type="text" name="zip" value="<%= customers.getZip() %>" />
+                <input type="text" name="zip" value="<%= customer.getZip() %>" />
                 <br>
                 <label>Email Address:</label>
                 <br>
-                <input type="text" name="emailaddr" value="<%= customers.getEmailAddr() %>" />
+                <input type="text" name="emailaddr" value="<%= customer.getEmailAddr() %>" />
                 <br><br>
                 
                 <input type="reset" name="reset" value="Clear" />
                 <input type="submit" name="submit" value="Update"/>
                 
                 
-            </form>
+          
+       
+                
+                
+                
     </body>
 </html>

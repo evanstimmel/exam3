@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,8 +6,13 @@
  */
 package controller;
 
+import dbHelpers.DeleteQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -58,7 +64,10 @@ public class DeleteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        doPost(request, response);
+        
+        
     }
 
     /**
@@ -72,7 +81,22 @@ public class DeleteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        try {
+            int custID = Integer.parseInt(request.getParameter("custID"));
+            
+            DeleteQuery dq = new DeleteQuery();
+            
+            dq.doDelete(custID);
+            
+            String url = "/read";
+            RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+            dispatcher.forward (request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(DeleteServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
 
     /**

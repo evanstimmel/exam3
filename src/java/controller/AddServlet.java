@@ -5,7 +5,7 @@
  */
 package controller;
 
-import dbhelpers.AddQuery;
+import dbHelpers.AddQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -93,7 +93,7 @@ public class AddServlet extends HttpServlet {
             customer.setAddr1(addr1);
             customer.setAddr2(addr2);
             customer.setCity(city);
-            customer.setState(state);
+            customer.setCustState(state);
             customer.setZip(zip);
             customer.setEmailAddr(emailAddr);
             

@@ -1,5 +1,9 @@
-
-package dbhelpers;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dbHelpers;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,8 +18,11 @@ import java.util.logging.Logger;
 import model.Customers;
 
 
-public class ReadQuery {
-    
+/**
+ *
+ * @author Evan Stimmel
+ */
+    public class ReadQuery {
     private Connection conn;
     private ResultSet results;
     
@@ -55,7 +62,7 @@ public class ReadQuery {
      
         
         try{
-             String query = "Select * FROM customers ORDER BY CustomerID ASC";
+             String query = "Select * FROM customer";
       
             PreparedStatement ps = conn.prepareStatement(query);
             this.results = ps.executeQuery();
@@ -74,65 +81,64 @@ public class ReadQuery {
         table += "<table>";
         
         table += "<tr>";
-             table += "<th>CustomerID</th> <th>FirstName</th> <th>LastName</th> <th>Addr1</th> <th>Addr2 Wins</th> <th>City</th> <th>State</th> <th>Zip</th> <th>EmailAddr</th>";
+             table += "<th>CustomerID</th> <th>FirstName</th> <th>LastName</th> <th>Addr1</th> <th>Addr2</th> <th>City</th> <th>State</th> <th>Zip</th> <th>EmailAddr</th>";
         table += "</tr>";
         
             try {
                 while(this.results.next()){
                     
-                    Customers customers = new Customers();
-                    customers.setCustomerID(this.results.getInt("CustomerID"));
-                    customers.setFirstName(this.results.getString("FirstName"));
-                    customers.setLastName(this.results.getString("LastName"));
-                    customers.setAddr1(this.results.getString("Addr1"));
-                    customers.setAddr2(this.results.getString("Addr2"));
-                    customers.setCity(this.results.getString("City"));
-                    customers.setState(this.results.getString("State"));
-                    customers.setZip(this.results.getString("Zip"));
-                    customers.setEmailAddr(this.results.getString("EmailAddr"));
-                    
+                    Customers customer = new Customers();
+                    customer.setCustID(this.results.getInt("CustID"));
+                    customer.setFirstName(this.results.getString("FirstName"));
+                    customer.setLastName(this.results.getString("LastName"));
+                    customer.setAddr1(this.results.getString("Addr1"));
+                    customer.setAddr2(this.results.getString("Addr2"));
+                    customer.setCity(this.results.getString("City"));
+                    customer.setCustState(this.results.getString("custState"));
+                    customer.setZip(this.results.getString("Zip"));
+                    customer.setEmailAddr(this.results.getString("EmailAddr"));
                     
                     table += "<tr>";
                     
                     table += "<td>";
-                    table += customers.getCustomerID();
+                    table += customer.getCustID();
                     table += "</td>";
  
                     
                     table += "<td>";
-                    table += customers.getFirstName();
+                    table += customer.getFirstName();
                     table += "</td>";
                     
                     table += "<td>";
-                    table += customers.getLastName();
+                    table += customer.getLastName();
                     table += "</td>";
                     
                     table += "<td>";
-                    table += customers.getAddr1();
+                    table += customer.getAddr1();
                     table += "</td>";
                     
                     table += "<td>";
-                    table += customers.getAddr2();
+                    table += customer.getAddr2();
                     table += "</td>";
                     
                     table += "<td>";
-                    table += customers.getCity();
+                    table += customer.getCity();
                     table += "</td>";
                     
                     table += "<td>";
-                    table += customers.getState();
+                    table += customer.getCustState();
                     table += "</td>";
                     
                     table += "<td>";
-                    table += customers.getZip();
+                    table += customer.getZip();
                     table += "</td>";
                     
                     table += "<td>";
-                    table += customers.getEmailAddr();
+                    table += customer.getEmailAddr();
                     table += "</td>";
                     
                     table += "<td>";
-                    table += "<a href=update?CustomerID=" + customers.getCustomerID() + "> Update </a>" + "<a href=delete?playerID=" + customers.getCustomerID() + "> Delete </a>";
+                    table += "<a href=update?CustID=" + customer.getCustID() + "> Update </a>" + "<a href=delete?CustID=" + customer.getCustID() + "> Delete </a>";
                     table += "</td>";
                     
                     table += "</tr>";
@@ -150,8 +156,3 @@ public class ReadQuery {
             return table;
         }
 }
-        
-            
-    
-
-

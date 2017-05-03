@@ -4,125 +4,122 @@ package model;
 
 public class Customers {
     
-    private int CustomerID;
-    private String FirstName;
-    private String LastName;
-    private String Addr1;
-    private String Addr2;
-    private String City;
-    private String State;
-    private String Zip;
-    private String EmailAddr;
+    private int custID;
+    private String firstName;
+    private String lastName;
+    private String addr1;
+    private String addr2;
+    private String city;
+    private String custState;
+    private String zip;
+    private String emailAddr;
+
     
-    
-    
-    public Customers() {
-        this.CustomerID = CustomerID = 0;
-        this.FirstName = FirstName ="";
-        this.LastName = LastName = "";
-        this.Addr1 = Addr1 = "";
-        this.Addr2 = Addr2 = "";
-        this.City = City = "";
-        this.State = State = "";
-        this.Zip = Zip = "";
-        this.EmailAddr = EmailAddr = "";
+      public Customers() {
+        this.custID = 0;
+        this.firstName = "";
+        this.lastName = "";
+        this.addr1 = "";
+        this.addr2 = "";
+        this.city = "";
+        this.custState = "";
+        this.zip = "";
+        this.emailAddr = "";
     }
 
-    public int getCustomerID() {
-        return CustomerID;
+    
+    
+    public Customers(int custID, String firstName, String lastName, String addr1, String addr2, String city, String custState, String zip, String emailAddr) {
+        this.custID = custID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.addr1 = addr1;
+        this.addr2 = addr2;
+        this.city = city;
+        this.custState = custState;
+        this.zip = zip;
+        this.emailAddr = emailAddr;
     }
 
-    public void setCustomerID(int CustomerID) {
-        this.CustomerID = CustomerID;
+
+    public void setCustID(int custID) {
+        this.custID = custID;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setAddr1(String addr1) {
+        this.addr1 = addr1;
+    }
+
+    public void setAddr2(String addr2) {
+        this.addr2 = addr2;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setCustState(String custState) {
+        this.custState = custState;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public void setEmailAddr(String emailAddr) {
+        this.emailAddr = emailAddr;
+    }
+
+    public int getCustID() {
+        return custID;
     }
 
     public String getFirstName() {
-        return FirstName;
-    }
-
-    public void setFirstName(String FirstName) {
-        this.FirstName = FirstName;
+        return firstName;
     }
 
     public String getLastName() {
-        return LastName;
-    }
-
-    public void setLastName(String LastName) {
-        this.LastName = LastName;
+        return lastName;
     }
 
     public String getAddr1() {
-        return Addr1;
-    }
-
-    public void setAddr1(String Addr1) {
-        this.Addr1 = Addr1;
+        return addr1;
     }
 
     public String getAddr2() {
-        return Addr2;
-    }
-    
-    public void setAddr2(String Addr2) {
-        this.Addr2 = Addr2;
+        return addr2;
     }
 
-     public String getCity() {
-        return City;
-    }
-   
-    public void setCity(String City) {
-        this.City = City;
-    }
-    
-    
-    public String getState() {
-        return State;
-    }
-    
-    public void setState(String State) {
-        this.State = State;
+    public String getCity() {
+        return city;
     }
 
-     public String getZip() {
-        return Zip;
+    public String getCustState() {
+        return custState;
     }
-    
-    public void setZip(String Zip) {
-        this.Zip = Zip;
+
+    public String getZip() {
+        return zip;
     }
-    
-     public String getEmailAddr() {
-        return EmailAddr;
-    }
-    
-    public void setEmailAddr(String EmailAddr) {
-        this.EmailAddr = EmailAddr;
-    }
-    
-    
-    
-    
-    
-    public Customers(int CustomerID, String FirstName, String LastName, String Addr1, String Addr2, String City, String State, String Zip, String EmailAddr) {
-        this.CustomerID = CustomerID;
-        this.FirstName = FirstName;
-        this.LastName = LastName;
-        this.Addr1 = Addr1;
-        this.Addr2 = Addr2;
-        this.City = City;
-        this.State = State;
-        this.Zip = Zip;
-        this.EmailAddr = EmailAddr;
+
+    public String getEmailAddr() {
+        return emailAddr;
     }
     
     @Override
     public String toString() {
-        return "Customers{" + "CustomerID=" + CustomerID + ", FirstName=" + FirstName + ", LastName=" + LastName + ", Addr1=" + Addr1 + ", Addr2=" + Addr2 + " "
-                + ", " + "City=" + City + "," + "State=" + State + "," + "Zip=" + Zip + "," + "EmailAddr=" + EmailAddr +'}';
+        return "Customers{" + "custID=" + custID + ", firstName=" + firstName + ", lastName=" + lastName + ", addr1=" + addr1 + ", addr2=" + addr2 + ", city=" + city + ", custState=" + custState + ", zip=" + zip + ", emailAddr=" + emailAddr + '}';
     }
 }
+  
     
 
     

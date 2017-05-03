@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="evancss.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/stylesheet1.css"/>
         <title>JSP Page</title>
     </head>
     
@@ -12,6 +12,18 @@
     
     
     <body>
+        <div class="wrap">
+            
+            <%@ include file="includes/header.jsp" %>
+        
+            <%@ include file="includes/menu.jsp" %>
+             
+              
+        
+        
+            <div class="main">
+                
+                
         <h1>Customers</h1>
         <%= table %>
         
@@ -20,6 +32,13 @@
         <a href ="add">Add A New Customer</a>
         <br> <br>
         <a href="search.jsp">Search Customers</a>
+        
+      
+        </div>
+       
+            <%@ include file="includes/footer.jsp" %>
+        
+        </div>
         
         
     </body>
