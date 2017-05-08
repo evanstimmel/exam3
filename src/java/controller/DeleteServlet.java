@@ -90,6 +90,7 @@ public class DeleteServlet extends HttpServlet {
             dq.doDelete(custID);
             
             String url = "/read";
+            
             RequestDispatcher dispatcher = request.getRequestDispatcher(url);
             dispatcher.forward (request, response);
         } catch (SQLException ex) {
